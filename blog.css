@@ -4,7 +4,7 @@
 
 @media (min-width: 48em) {
   html {
-    font-size: 18px;
+    font-size: 17px;
   }
 }
 
@@ -126,7 +126,7 @@ h6, .h6 {
 
 /* Pagination */
 .blog-pagination {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 .blog-pagination > .btn {
   border-radius: 2rem;
@@ -138,14 +138,14 @@ h6, .h6 {
  */
 
 .blog-post {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 .blog-post-title {
   margin-bottom: .25rem;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 .blog-post-meta {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
   color: #999;
 }
 
