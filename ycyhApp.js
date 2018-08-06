@@ -30,7 +30,7 @@ app.controller('ycyhCtrl', function($scope) {
     title: '点 击 查 看[米奇比心]',
     author: ct[2].author,
     source: ct[2].source,
-    link: 'https://www.weibo.com/tv/v/4268244866157752?fid=1034:4268244866157752',
+    link: 'https://t.cn/Re8QRn5',
     tag: '生日 同框 大星星 狗头'
   },
   {
