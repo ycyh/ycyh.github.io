@@ -1,3 +1,4 @@
+"use strict";
 var app = angular.module('ycyh', ['ngSanitize']);
 app.controller('ycyhCtrl', function($scope) {
   $scope.ycyLyric = ['如果你也觉得心灵相惜，那就请你给我个肯定的回应'];
@@ -53,9 +54,9 @@ app.controller('ycyhCtrl', function($scope) {
 app.directive('contentDirective', function() {
   return {
     template: '<div class="blog-post">\
-      <h2 class="blog-post-title"><button class="btn btn-info btn-sm" type="button">Show</button>&nbsp&nbsp{{data.title}} <a href={{data.link}} target="_blank">原文</a></h2>\
+      <h2 class="blog-post-title"><button class="btn btn-info btn-sm" type="button" ng-disabled="!data.content">Show</button>&nbsp&nbsp{{data.title}} <a href={{data.link}} target="_blank">原文</a></h2>\
       <p class="blog-post-meta"><a href={{data.source}} target="_blank">{{data.author}}</a>&nbsp&nbspTags: {{data.tag}}</p>\
-      <div class="collapse" ng-bind-html="data.content"></div><button class="btn btn-secondary btn-sm collapse" type="button" markBt>Hide</button>',
+      <div class="collapse" ng-bind-html="data.content"></div><button class="btn btn-secondary btn-sm collapse" type="button" markBt ng-if="data.content">Hide</button></div>',
     scope: {
       data: '=',
     }
@@ -63,17 +64,24 @@ app.directive('contentDirective', function() {
 });
 
 $(document).ready(function(){
+
   $("h2 button").click(function() {
     $(this).parent().next().next().toggle();
     $(this).parent().next().next().next().toggle();
   });
+
   $("[markBt]").click(function() {
     $(this).hide();
     $(this).prev().hide();
+    var parent = $(this).parent();
+    $("html, body").animate({
+      scrollTop: parent.offset().top
+    }, 100);
   });
+  
   $("#allIn").click(function() {
     if ($(this).text() == "我全要") {
-      $(this).removeClass("btn-primary").addClass("btn-secondary").text("太甜了");
+      $(this).removeClass("btn-primary").addClass("btn-secondary").text("别太堕落");
       $("[ng-bind-html]").show();
       $("[markBt]").show();
     } else {
@@ -82,4 +90,5 @@ $(document).ready(function(){
       $("[markBt]").hide();
     }
   });
+
 });
