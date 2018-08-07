@@ -124,9 +124,9 @@ app.controller('ycyhCtrl', function($scope) {
 app.directive('contentDirective', function() {
   return {
     template: '<div class="blog-post">\
-      <h2 class="blog-post-title"><button class="btn btn-info btn-sm" type="button" ng-disabled="!data.content">Show</button>&nbsp&nbsp{{data.title}} <a href={{data.link}} target="_blank">原文</a></h2>\
+      <h2 class="blog-post-title"><button class="btn btn-info btn-sm" type="button" ng-disabled="!data.content">拆糖</button>&nbsp&nbsp{{data.title}} <a href={{data.link}} target="_blank">原文</a></h2>\
       <p class="blog-post-meta"><a href={{data.source}} target="_blank">{{data.author}}</a>&nbsp&nbspTags: {{data.tag}}</p>\
-      <div class="collapse" ng-bind-html="data.content"></div><button class="btn btn-secondary btn-sm collapse" type="button" markBt ng-if="data.content">Hide</button></div>',
+      <div class="collapse" ng-bind-html="data.content"></div><button class="btn btn-secondary btn-sm collapse" type="button" markBt ng-if="data.content">藏起来</button></div>',
     scope: {
       data: '=',
     }
