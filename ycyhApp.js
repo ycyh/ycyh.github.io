@@ -162,10 +162,10 @@ $(document).ready(function(){
   });
 
   $("#cyh01").click(function() {
-    $("#audioDiv").children()[Math.floor(Math.random() * 6)].play();
+    $("#audioDiv").children()[Math.floor(Math.random() * 8)].play();
   });
   $("#ycy01").click(function() {
-    $("#audioDiv").children()[Math.floor(Math.random() * 6) + 6].play();
+    $("#audioDiv").children()[Math.floor(Math.random() * 8) + 8].play();
   });
 
 });
