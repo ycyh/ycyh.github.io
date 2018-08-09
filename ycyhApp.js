@@ -1,6 +1,6 @@
 "use strict";
 var app = angular.module('ycyh', ['ngSanitize']);
-app.controller('ycyhCtrl', function($scope, $http) {
+app.controller('ycyhCtrl', function($scope, $http, $interval) {
   $scope.ycyLyric = ['如果你也觉得心灵相惜，那就请你给我个肯定的回应'];
 
   var ct = [
@@ -32,14 +32,6 @@ app.controller('ycyhCtrl', function($scope, $http) {
     source: ct[2].source,
     link: 'https://t.cn/Re8QRn5',
     tag: '生日 同框 大星星 狗头'
-  },
-  {
-    title: '饭拍',
-    author: '你和芒果一样好吃',
-    source: 'https://weibo.com/u/5305992260',
-    link: 'https://www.weibo.com/5305992260/Gm0u5bK0v?type=comment',
-    content: '<div class="WB_text W_f14" node-type="feed_list_content" nick-name="你和芒果一样好吃"><a suda-uatrack="key=tblog_card&amp;value=click_title:4252450812798463:1022-topic:1022%3A1008086867749a76fc377225cce9de32b65e06" title="越涵" href="http://huati.weibo.com/5587433" alt="http://huati.weibo.com/5587433" action-type="feed_list_url" target="_blank"><i class="W_ficon ficon_supertopic"></i>越涵</a> <br>part1 我要给你吹头发的故事<br>粉丝送了吹风机<br>越越：cyh我回去帮你吹头发<br><br>part2 大型土味情话现场<br>粉丝：一生挚爱用英文怎么说？<br>越越(想不明白，扭头看小陈)：？？？<img class="W_img_face" render="ext" src="//img.t.sinajs.cn/t4/appstyle/expression/ext/normal/2a/2018new_wenhao_org.png" title="[费解]" alt="[费解]" type="face"><br>粉丝：you！<br>小陈：you，你！一生挚爱，你！<br>越越：欸？？？？<img class="W_img_face" render="ext" src="//img.t.sinajs.cn/t4/appstyle/expression/ext/normal/2a/2018new_wenhao_org.png" title="[费解]" alt="[费解]" type="face"><br>小陈：你是不是没被土味情话撩过？<br><br>越越害羞捂脸，还是听不懂，小陈继续解释～<br><br>小陈：我的一生挚爱，就是你<img class="W_img_face" render="ext" src="//img.t.sinajs.cn/t4/appstyle/expression/ext/normal/8a/2018new_xin_org.png" title="[心]" alt="[心]" type="face">。<br>越越：喔～～～～～<br><br>嗯，你接收到了吗？ <a suda-uatrack="key=tblog_card&amp;value=click_title:4252450812798463:1034-video:1034%3A9e9b5511076f14971bb9db5c2f47e67f:weibodetail:5305992260:4252450812798463:5305992260" title="你和芒果一样好吃的秒拍视频" href="http://t.cn/RB39IZa" alt="http://t.cn/RB39IZa" action-type="feed_list_url" target="_blank"><i class="W_ficon ficon_cd_video">L</i>你和芒果一样好吃的秒拍视频</a></div>',
-    tag: '吹风机，吹头发，一生挚爱，you'
   },
   {
     title: '越涵101感情进展时间线',
@@ -106,17 +98,21 @@ app.controller('ycyhCtrl', function($scope, $http) {
   }
   ];
 
-  $http({
-      method : "GET",
-      url : "https://kb1jwi4uvg.execute-api.us-west-1.amazonaws.com/prod01/addone"
-    }).then(
-      function(response) {       
-        $scope.count1 = response.data[0].cnt;
-        $scope.count2 = response.data[1].cnt;
-      }, function(response) {
-        console.log(response);
-      }
-  );
+  $scope.callGetCount = function() {
+    $http({
+        method : "GET",
+        url : "https://kb1jwi4uvg.execute-api.us-west-1.amazonaws.com/prod01/addone"
+      }).then(
+        function(response) {       
+          $scope.count1 = response.data[0].cnt;
+          $scope.count2 = response.data[1].cnt;
+        }, function(response) {
+          console.log(response);
+        }
+    );
+  }
+  $scope.callGetCount();
+  $interval($scope.callGetCount, 3000);
 
   $scope.play1 = function() {
     $scope.count1 = $scope.count1 + 1;
@@ -127,7 +123,7 @@ app.controller('ycyhCtrl', function($scope, $http) {
       data: { "name" : "cyh" }
     }).then(
       function(response) {
-        $scope.count1 = response.data;
+        //$scope.count1 = response.data;
       }, function(response) {
         console.log(response);
       }
@@ -143,7 +139,7 @@ app.controller('ycyhCtrl', function($scope, $http) {
       data: { "name" : "ycy" }
     }).then(
       function(response) {
-        $scope.count2 = response.data;
+        //$scope.count2 = response.data;
       }, function(response) {
         console.log(response);
       }
