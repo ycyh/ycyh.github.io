@@ -106,10 +106,20 @@ app.controller('ycyhCtrl', function($scope, $http) {
   }
   ];
 
+  $http({
+      method : "GET",
+      url : "https://kb1jwi4uvg.execute-api.us-west-1.amazonaws.com/prod01/addone"
+    }).then(
+      function(response) {       
+        $scope.count1 = response.data[0].cnt;
+        $scope.count2 = response.data[1].cnt;
+      }, function(response) {
+        console.log(response);
+      }
+  );
 
-  $scope.count1 = 0;
-  $scope.count2 = 0;
   $scope.play1 = function() {
+    $scope.count1 = $scope.count1 + 1;
     $("#audioDiv").children()[Math.floor(Math.random() * 8)].play();
     $http({
       method : "POST",
@@ -125,6 +135,7 @@ app.controller('ycyhCtrl', function($scope, $http) {
   }
 
   $scope.play2 = function() {
+    $scope.count2 = $scope.count2 + 1;
     $("#audioDiv").children()[Math.floor(Math.random() * 8) + 8].play();
     $http({
       method : "POST",
