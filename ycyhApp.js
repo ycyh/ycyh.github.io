@@ -1,6 +1,6 @@
 "use strict";
 var app = angular.module('ycyh', ['ngSanitize']);
-app.controller('ycyhCtrl', function($scope) {
+app.controller('ycyhCtrl', function($scope, $http) {
   $scope.ycyLyric = ['如果你也觉得心灵相惜，那就请你给我个肯定的回应'];
 
   var ct = [
@@ -105,6 +105,40 @@ app.controller('ycyhCtrl', function($scope) {
     content: '<div class="weibo-text"><a href="https://m.weibo.cn/p/index?extparam=%E8%B6%8A%E6%B6%B5&amp;containerid=1008086867749a76fc377225cce9de32b65e06&amp;luicode=20000061&amp;lfid=4268536253248315" data-hide=""><span class="url-icon"><img style="width: 1rem;height: 1rem" src="https://h5.sinaimg.cn/upload/1000/8/2018/04/20/super_default.png"></span><span class="surl-text">越涵</span></a><br>【来放毒】（0731上）<br>06.20-06.21 <a data-url="http://t.cn/RBF7Cfc" href="https://m.weibo.cn/5370574046/4253060560122068" data-hide=""><span></span><span class="surl-text">网页链接</span></a><br>06.22和06.24 <a data-url="http://t.cn/RrVWY0N" href="https://m.weibo.cn/5370574046/4254673646523111" data-hide=""><span></span><span class="surl-text">网页链接</span></a>   <br>06.29更新 <a data-url="http://t.cn/RrThGCa" href="https://m.weibo.cn/5370574046/4256270854912075" data-hide=""><span></span><span class="surl-text">网页链接</span></a><br>07.04上 <a data-url="http://t.cn/RdAJCAK" href="https://m.weibo.cn/5370574046/4258115270352044" data-hide=""><span></span><span class="surl-text">网页链接</span></a><br>07.04下 <a data-url="http://t.cn/RdL7qyu" href="https://m.weibo.cn/5829724264/4258192529366991" data-hide=""><span></span><span class="surl-text">网页链接</span></a><br>0717上<a data-url="http://t.cn/RgY0Dvc" href="https://m.weibo.cn/5370574046/4263920657115396" data-hide=""><span></span><span class="surl-text">网页链接</span></a> <br>0717下<a data-url="http://t.cn/RgHm3GB" href="https://m.weibo.cn/5829724264/4263925119492699" data-hide=""><span></span><span class="surl-text">网页链接</span></a><br><br>「每日一毒」十个<br>10.<a href="https://m.weibo.cn/5370574046/4265777127565252" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br><br>1.绝美友情就是和正常女孩子一样 <a data-url="http://t.cn/Rew5mtb" href="http://video.weibo.com/show?fid=1034:4265742464647210" data-hide=""><span class="url-icon"><img style="width: 1rem;height: 1rem" src="https://h5.sinaimg.cn/upload/2015/09/25/3/timeline_card_small_video_default.png"></span><span class="surl-text">城里最美的花的秒拍视频</span></a><br>2.最大的遗憾，cyh没有和我在一起<a data-url="http://t.cn/ReUh8Ph" href="https://m.weibo.cn/5827917917/4266001832518410" data-hide=""><span></span><span class="surl-text">网页链接</span></a><br>3.去她也曾经去过的地方<a data-url="http://t.cn/RgBiskA" href="https://m.weibo.cn/1918548895/4264723719275214" data-hide=""><span></span><span class="surl-text">网页链接</span></a><br>4.接过手中重物<a data-url="http://t.cn/RgC1S7g" href="https://m.weibo.cn/6583384248/4263427855761270" data-hide=""><span></span><span class="surl-text">网页链接</span></a><br>5.正常朋友，没有粉丝想的那些<a href="http://t.cn/RendL69" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>6.“想演侠女，保护自己的？朋友”<a href="http://t.cn/RgTKXWv" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>7.模仿视频<a href="http://t.cn/ReuZeXg" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>8.扔掉抓娃娃赠品“你怎么不抓紧我的心”<a href="http://t.cn/RendL6a" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>9.出色洗衣伴侣<a href="http://t.cn/RendL60" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>10.疑似同款，鞋<a href="http://t.cn/RendL6R" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>裙子 <a href="http://t.cn/RendL6C" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>11.  ccyy说抓娃娃幼稚<a href="http://t.cn/RgBvNNY" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>12.学猫叫<a href="http://t.cn/RendL68" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>13.嘿嘿嘿<a href="http://t.cn/RendL6o" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>14.只看到你眼里的星星<a href="http://t.cn/RendL6W" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>15.模仿wink比心动图<a href="http://t.cn/ReWxEVe" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>16.杨老师：那牛奶你们自己随便喝呀<a href="http://t.cn/RendL6N" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>郭老师：在喜欢的人面前都挺幼稚<a href="http://t.cn/ReI3hZt" data-hide=""><span></span> <span class="surl-text">网页链接</span></a> ​<br>17.p图一张<a href="http://t.cn/RendL6p" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>18.隔空，抓娃娃幼稚<a href="http://t.cn/RendL6Q" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>19.你们有没有看到cy？” “在哪” “没有”<a href="http://t.cn/RendL6T" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>20.“完美”<a href="http://t.cn/ReuZeXD" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>21. 9个就是<a href="https://m.weibo.cn/2947301095/4265753744105537" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>22.抄作业 侠女＆女侠，模仿cyh   <a href="https://m.weibo.cn/1688648694/4267820185357260" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>23.0720采访完整版，喜欢跟喜欢的人待在一起，最近喜欢吃鸡，想演女侠保护自己的人<a href="https://m.weibo.cn/2197079027/4263920330088466" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>24.采访慌张合集<a href="https://m.weibo.cn/1918548895/4266183488461647" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>25.《走进越涵》第二期<a href="https://m.weibo.cn/5129969284/4263270543668742" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>26.《陈一哈与她的正常朋友》<a href="http://t.cn/Rg92Hyh" data-hide=""><span></span> <span class="surl-text">网页链接</span></a> <a href="http://t.cn/Rg928xW" data-hide=""><span></span> <span class="surl-text">网页链接</span></a> ​<br>27.所长717-718总结<a href="https://m.weibo.cn/5827917917/4263412793608981" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br><br>微博（含所长文案）<br>1. 0718 23:48 cy博 大雨滂沱，继续工作，我和yh保护你（黄老师），附两颗心签名「一颗心是软肋 两颗心是盔甲」 ​​​​<br>2. 0719 00：26  yh博，好好照顾自己抱抱「偶然相遇 把一颗心 忘在你那儿」<br>3. 01：16 cy回复微博  有休息了，来看我   <br>yh：必须的<br>4.在各自超话和粉丝道晚安<br>＜03：36  越涵（粉丝数最少）超话登顶 <br>8点多-17点多 再次登顶＞<br>5. 0719 10：03 cy博永远都是很好的朋友「关于对方  你们有太多勇气」 ​​​​ <br>＜7月20日 03:36月影反黑、星尘数据组成立＞<br>6. 0721 00：21cy点赞yh广告博，02：00yh点赞cy童年照『你的过往 我也珍藏』 ​​​​<br>7. 0724 cy博，你是我眼里的那颗星<br>yh转发星光邦星星 『🌟有灵犀一点通』 ​​​​<br>8. 0725cy博父女合照，头小是遗传 <br>yh回复评论，可爱父女抱抱<br><br>0721月光生日博<a href="https://m.weibo.cn/5827917917/4264122448913020" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>童话一则<a href="https://m.weibo.cn/5827917917/4265794789696600" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>“真挚的感情不需要怀疑和证明，<br>真心也不需要称斤论重。”<br>月光生日应援视频<a href="https://m.weibo.cn/5827917917/4266021026156913" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>杭州地铁22个站返图<a href="https://m.weibo.cn/1870947382/4267929409189485" data-hide=""><span></span> <span class="surl-text">网页链接</span></a><br>北京CBD小屏组21屏返图<a href="https://m.weibo.cn/2281153245/4267923156061360" data-hide=""><span></span> <span class="surl-text">网页链接</span></a></div>'
   }
   ];
+
+
+  $scope.count1 = 0;
+  $scope.count2 = 0;
+  $scope.play1 = function() {
+    $("#audioDiv").children()[Math.floor(Math.random() * 8)].play();
+    $http({
+      method : "POST",
+      url : "https://kb1jwi4uvg.execute-api.us-west-1.amazonaws.com/prod01/addone",
+      data: { "name" : "cyh" }
+    }).then(
+      function(response) {
+        $scope.count1 = response.data;
+      }, function(response) {
+        console.log(response);
+      }
+    );
+  }
+
+  $scope.play2 = function() {
+    $("#audioDiv").children()[Math.floor(Math.random() * 8) + 8].play();
+    $http({
+      method : "POST",
+      url : "https://kb1jwi4uvg.execute-api.us-west-1.amazonaws.com/prod01/addone",
+      data: { "name" : "ycy" }
+    }).then(
+      function(response) {
+        $scope.count2 = response.data;
+      }, function(response) {
+        console.log(response);
+      }
+    );
+  }
+
 });
 /*
   replace {
@@ -159,13 +193,6 @@ $(document).ready(function(){
       $("[ng-bind-html]").hide();
       $("[markBt]").hide();
     }
-  });
-
-  $("#cyh01").click(function() {
-    $("#audioDiv").children()[Math.floor(Math.random() * 8)].play();
-  });
-  $("#ycy01").click(function() {
-    $("#audioDiv").children()[Math.floor(Math.random() * 8) + 8].play();
   });
 
 });
