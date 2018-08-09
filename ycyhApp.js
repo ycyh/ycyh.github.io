@@ -103,9 +103,9 @@ app.controller('ycyhCtrl', function($scope, $http, $interval) {
         method : "GET",
         url : "https://kb1jwi4uvg.execute-api.us-west-1.amazonaws.com/prod01/addone"
       }).then(
-        function(response) {       
-          $scope.count1 = response.data[0].cnt;
-          $scope.count2 = response.data[1].cnt;
+        function(response) {
+          $scope.count1 = Math.max($scope.count1, response.data[0].cnt);
+          $scope.count2 = Math.max($scope.count2, response.data[1].cnt);
         }, function(response) {
           console.log(response);
         }
