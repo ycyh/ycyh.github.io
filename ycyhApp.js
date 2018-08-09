@@ -98,6 +98,8 @@ app.controller('ycyhCtrl', function($scope, $http, $interval) {
   }
   ];
 
+  $scope.count1 = 6;
+  $scope.count2 = 6;
   $scope.callGetCount = function() {
     $http({
         method : "GET",
